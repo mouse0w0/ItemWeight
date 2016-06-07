@@ -1,0 +1,6 @@
+name: ItemWeight
+version: 1.0.0
+main: me.mouse.itemweight.ItemWeight
+author: Mouse
+commands:
+    itemweight:
