@@ -27,9 +27,10 @@ public class EventListener implements Listener {
 		event.getPlayer().setWalkSpeed(0.2f);
 	}
 
-	@EventHandler
-	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
+	@EventHandler(ignoreCancelled=true)
+	public void onPlayerPickupItem(final PlayerPickupItemEvent event) {
 		updatePlayerSpeed(event.getPlayer());
+		if(!event.getPlayer().hasPermission("itemweight.overlook"))event.getPlayer().setWalkSpeed(event.getPlayer().getWalkSpeed()-ItemWeight.config.getItemWeight(event.getItem().getItemStack()) * event.getItem().getItemStack().getAmount() * 0.2f);
 	}
 
 	@EventHandler
@@ -58,6 +59,10 @@ public class EventListener implements Listener {
 	}
 
 	private void updatePlayerSpeed(Player player) {
+		if(player.hasPermission("itemweight.overlook")){
+			player.setWalkSpeed(0.2f);
+			return;
+		}
 		float speed = 0.2F * ItemWeight.config.getDefaultSpeed();
 		PlayerInventory inv = player.getInventory();
 		ItemStack armors[] = inv.getArmorContents();

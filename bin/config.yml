@@ -1,7 +1,0 @@
-#默认速度
-defaultSpeed: 1.25
-#默认物品重量
-defaultWeight: 0.0002
-#自定义物品重量
-itemWeights:
-  - '7:0.0002'

@@ -4,3 +4,12 @@ main: me.mouse.itemweight.ItemWeight
 author: Mouse
 commands:
     itemweight:
+permissions:
+    itemweight.reload:
+        default: op
+    itemweight.look:
+        default: op
+    itemweight.help:
+        default: op
+    itemweight.overlook:
+        default: false
